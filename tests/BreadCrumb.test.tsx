@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { Breadcrumb } from "./BreadCrumb";
+import { Breadcrumb } from "../components/shared/BreadCrumb";
 
 
 describe("Breadcrumb", () => {
