@@ -32,8 +32,10 @@ npm install
 Create a `.env.development.local` file at the project root:
 
 ```bash
-NEXT_PUBLIC_READ_ACCESS_TOKEN=your_read_access_token_here
+READ_ACCESS_TOKEN=your_read_access_token_here
 ```
+
+> **Important:** Do not prefix with `NEXT_PUBLIC_` — this token is server-only and must never be exposed to the browser. All API routes and server components access it as `process.env.READ_ACCESS_TOKEN`.
 
 Get your token from [TMDB API settings](https://www.themoviedb.org/settings/api).
 
@@ -74,7 +76,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ```
 your-project/
-├── .env.local                            ← TMDB_READ_ACCESS_TOKEN (never commit this)
+├── .env.local                            ← READ_ACCESS_TOKEN (never commit this)
 ├── next.config.ts                        ← image.tmdb.org remotePatterns
 ├── vitest.config.ts                      ← Vitest + jsdom + path aliases
 ├── README.md
@@ -309,4 +311,4 @@ npm run test:coverage     # run with v8 coverage report
 
 | Variable | Required | Description |
 |---|---|---|
-| `TMDB_READ_ACCESS_TOKEN` | Yes | TMDB API Read Access Token. Server-only — no `NEXT_PUBLIC_` prefix. |
+| `READ_ACCESS_TOKEN` | Yes | TMDB API Read Access Token. Server-only — no `NEXT_PUBLIC_` prefix. |
